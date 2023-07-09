@@ -4,12 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import androidx.room.Room
-import com.example.controlefininanceiro.dao.AppDatabase
-import com.example.controlefininanceiro.dao.RegisterDao
 import com.example.controlefininanceiro.databinding.ActivityMainBinding
-import com.example.controlefininanceiro.fragments.ListaFragment
-import com.example.controlefininanceiro.model.Register
+import com.example.controlefininanceiro.fragments.ListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState ==  null){
             supportFragmentManager.commit{
                 setReorderingAllowed(true)
-                add<ListaFragment>(binding.fragmentContainerView.id)
+                add<ListFragment>(binding.fragmentContainerView.id)
             }
         }
 

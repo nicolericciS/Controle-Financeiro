@@ -13,12 +13,13 @@ import androidx.fragment.app.setFragmentResult
 import com.example.controlefininanceiro.R
 import com.example.controlefininanceiro.adapter.RegisterAdapter
 import com.example.controlefininanceiro.dao.AppDatabase
-import com.example.controlefininanceiro.databinding.FragmentListaBinding
+import com.example.controlefininanceiro.databinding.FragmentListBinding
 import com.example.controlefininanceiro.model.Register
 
-class ListaFragment : Fragment() {
+class ListFragment : Fragment() {
 
-    private lateinit var binding: FragmentListaBinding
+    private var _binding: FragmentListBinding? = null
+    private val binding: FragmentListBinding get() = _binding!!
     private lateinit var adapter: RegisterAdapter
     private var database = AppDatabase
     private lateinit var register: Register
@@ -29,7 +30,7 @@ class ListaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentListaBinding.inflate(inflater, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,6 +40,11 @@ class ListaFragment : Fragment() {
         setupAdapter()
         setupLayout()
         onDataUpdate()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun onDataUpdate() = if (adapter.isEmpty()) {
