@@ -40,7 +40,7 @@ class NewRegisterFragment : Fragment() {
     private fun onSubmit(): Register {
 
         val title = binding.edtTitle.text.toString()
-        val value = binding.edtValue.text.toString()
+        val value = binding.edtValue.unMasked
 
         submitInfoToFragment()
 

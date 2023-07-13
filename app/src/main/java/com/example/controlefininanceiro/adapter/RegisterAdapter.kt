@@ -38,7 +38,7 @@ class RegisterAdapter(
             onClick: (Register) -> Unit
         ) {
             tvTitleRegister.text = register.title
-            tvValue.text = register.value.toString()
+            tvValue.text = "R$ ${register.value}"
             imgBtnDelete.setOnClickListener {
                 onDeleteClick(register)
             }
@@ -64,11 +64,6 @@ class RegisterAdapter(
     }
 
     override fun getItemCount(): Int = registers.size
-
-    //fun addRegister(register: Register){
-    // registers.add(register)
-    // notifyItemInserted(registers.size-1)
-    //}
 
     fun deleteRegister(register: Register) {
         val deletedPosition = registers.indexOf(register)
