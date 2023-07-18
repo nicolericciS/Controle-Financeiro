@@ -38,7 +38,10 @@ class RegisterAdapter(
             onClick: (Register) -> Unit
         ) {
             tvTitleRegister.text = register.title
-            tvValue.text = "R$ ${register.value}"
+            val size = register.value.toString().length
+            val valueMaskBefore = register.value.toString().substring(0, size-2)
+            val valueMaskAfter = register.value.toString().substring(size-2, size)
+            tvValue.text = "R$ ${valueMaskBefore},${valueMaskAfter}"
             imgBtnDelete.setOnClickListener {
                 onDeleteClick(register)
             }
