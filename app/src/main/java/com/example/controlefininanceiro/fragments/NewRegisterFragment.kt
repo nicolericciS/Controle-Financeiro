@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import com.example.controlefininanceiro.dao.AppDatabase
+import com.example.controlefininanceiro.databinding.FragmentListBinding
 import com.example.controlefininanceiro.databinding.FragmentNewRegisterBinding
 import com.example.controlefininanceiro.model.Register
 
 class NewRegisterFragment : Fragment() {
 
-    private lateinit var binding: FragmentNewRegisterBinding
+    private var _binding: FragmentNewRegisterBinding? = null
+    private val binding: FragmentNewRegisterBinding get() = _binding!!
     private var database = AppDatabase
     private var registerId = 0L
 
@@ -22,13 +24,13 @@ class NewRegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentNewRegisterBinding.inflate(inflater, container, false)
+        _binding = FragmentNewRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        saveButton()
+        setListener()
         setFragmentResultListener("REGISTER_RESULT") { _, bundle ->
             val register = bundle.getSerializable("REGISTER") as Register
             registerId = register.id
@@ -37,12 +39,15 @@ class NewRegisterFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun onSubmit(): Register {
 
         val title = binding.edtTitle.text.toString()
         val value = binding.edtValue.unMasked
-
-        submitInfoToFragment()
 
         return Register(
             id = registerId,
@@ -54,8 +59,9 @@ class NewRegisterFragment : Fragment() {
     private fun submitInfoToFragment() {
         parentFragmentManager.popBackStack()
     }
+    
 
-    private fun saveButton() {
+    private fun setListener() {
         val db = database.getInstance(requireContext())
         val registerDao = db.registerDao()
 
@@ -68,6 +74,7 @@ class NewRegisterFragment : Fragment() {
                 registerDao.save(newRegister)
 
             }
+            submitInfoToFragment()
         }
     }
 }

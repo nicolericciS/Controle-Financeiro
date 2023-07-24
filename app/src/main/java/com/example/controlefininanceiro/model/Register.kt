@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class Register(
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
-    var title: String,
-    var value: Long
+    val title: String,
+    val value: Long
 ): java.io.Serializable
