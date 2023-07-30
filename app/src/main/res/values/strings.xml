@@ -3,7 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_save_register">Salvar Registro de Compra</string>
+    <string name="btn_save_category">Salvar Categoria</string>
     <string name="hint_value">R$ 00,00</string>
     <string name="hint_title">Bolo de laranja</string>
+    <string name="hint_name">Alimentos</string>
     <string name="res_item_text">TextView</string>
 </resources>

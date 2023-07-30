@@ -39,8 +39,8 @@ class RegisterAdapter(
         ) {
             tvTitleRegister.text = register.title
             val size = register.value.toString().length
-            val valueMaskBefore = register.value.toString().substring(0, size-2)
-            val valueMaskAfter = register.value.toString().substring(size-2, size)
+            val valueMaskBefore = register.value.toString().substring(0, size - 2)
+            val valueMaskAfter = register.value.toString().substring(size - 2, size)
             tvValue.text = "R$ ${valueMaskBefore},${valueMaskAfter}"
             imgBtnDelete.setOnClickListener {
                 onDeleteClick(register)

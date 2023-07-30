@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import com.example.controlefininanceiro.dao.AppDatabase
-import com.example.controlefininanceiro.databinding.FragmentListBinding
 import com.example.controlefininanceiro.databinding.FragmentNewRegisterBinding
 import com.example.controlefininanceiro.model.Register
 
@@ -59,7 +58,7 @@ class NewRegisterFragment : Fragment() {
     private fun submitInfoToFragment() {
         parentFragmentManager.popBackStack()
     }
-    
+
 
     private fun setListener() {
         val db = database.getInstance(requireContext())

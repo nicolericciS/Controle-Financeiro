@@ -9,3 +9,10 @@ data class Register(
     val title: String,
     val value: Long
 ): java.io.Serializable
+
+@Entity
+data class Category(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0L,
+    val name: String
+): java.io.Serializable

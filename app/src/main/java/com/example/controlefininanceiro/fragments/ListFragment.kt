@@ -2,10 +2,10 @@ package com.example.controlefininanceiro.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
@@ -41,6 +41,7 @@ class ListFragment : Fragment() {
         setupLayout()
         onDataUpdate()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -114,4 +115,6 @@ class ListFragment : Fragment() {
         }
         builder.show()
     }
+
+
 }
