@@ -24,13 +24,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:text="@string/res_item_text"
         android:textSize="17sp"
         app:layout_constraintEnd_toStartOf="@+id/img_btn_edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/res_item_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/img_btn_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_value" />
 
     <ImageButton
         android:id="@+id/img_btn_delete"
@@ -53,4 +66,6 @@
         app:layout_constraintEnd_toStartOf="@id/img_btn_delete"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/edit_icon" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

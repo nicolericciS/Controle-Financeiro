@@ -24,12 +24,14 @@ class RegisterAdapter(
         private val tvValue: TextView
         private val imgBtnDelete: ImageButton
         private val imgBtnEdit: ImageButton
+        private val tvCategory: TextView
 
         init {
             tvTitleRegister = itemView.tvTitle
             tvValue = itemView.tvValue
             imgBtnDelete = itemView.imgBtnDelete
             imgBtnEdit = itemView.imgBtnEdit
+            tvCategory = itemView.tvCategory
         }
 
         fun bind(
@@ -42,6 +44,7 @@ class RegisterAdapter(
             val valueMaskBefore = register.value.toString().substring(0, size - 2)
             val valueMaskAfter = register.value.toString().substring(size - 2, size)
             tvValue.text = "R$ ${valueMaskBefore},${valueMaskAfter}"
+            tvCategory.text = "Categoria: ${register.categoryId}"
             imgBtnDelete.setOnClickListener {
                 onDeleteClick(register)
             }

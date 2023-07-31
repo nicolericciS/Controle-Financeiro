@@ -7,12 +7,13 @@ import androidx.room.PrimaryKey
 data class Register(
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     val title: String,
-    val value: Long
+    val value: Long,
+    val categoryId: Long
 ): java.io.Serializable
 
 @Entity
 data class Category(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0L,
+    var id: Long = 0L,
     val name: String
 ): java.io.Serializable

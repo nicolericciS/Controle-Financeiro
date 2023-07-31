@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="lava">#D21312</color>
+
+    <color name="soft_white">#f1faee</color>
+    <color name="soft_blue">#a8dadc</color>
+    <color name="blue">#457b9d</color>
+    <color name="deep_blue">#1d3557</color>
 </resources>

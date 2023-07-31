@@ -105,4 +105,5 @@ class CategoryListFragment : Fragment() {
         }
         builder.show()
     }
+
 }

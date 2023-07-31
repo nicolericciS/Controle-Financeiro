@@ -85,7 +85,8 @@ class ListFragment : Fragment() {
                     "REGISTER" to Register(
                         id = register.id,
                         title = register.title,
-                        value = register.value
+                        value = register.value,
+                        categoryId = register.categoryId
                     )
                 )
                 setFragmentResult("REGISTER_RESULT", bundle)
