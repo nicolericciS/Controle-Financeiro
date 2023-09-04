@@ -13,9 +13,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/res_item_text"
+        tools:text="@string/res_item_text"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/img_btn_edit"
+        app:layout_constraintEnd_toStartOf="@id/img_btn_edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,9 +26,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/res_item_text"
+        tools:text="@string/res_item_text"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/img_btn_edit"
+        app:layout_constraintEnd_toStartOf="@id/img_btn_edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
@@ -39,9 +39,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/res_item_text"
+        tools:text="@string/res_item_text"
         android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/img_btn_edit"
+        app:layout_constraintEnd_toStartOf="@id/img_btn_edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_value" />
 

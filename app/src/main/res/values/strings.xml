@@ -8,4 +8,5 @@
     <string name="hint_title">Bolo de laranja</string>
     <string name="hint_name">Alimentos</string>
     <string name="res_item_text">TextView</string>
+    <string name="label_title_register">Nome do registro</string>
 </resources>

@@ -44,7 +44,7 @@ class RegisterAdapter(
             val valueMaskBefore = register.value.toString().substring(0, size - 2)
             val valueMaskAfter = register.value.toString().substring(size - 2, size)
             tvValue.text = "R$ ${valueMaskBefore},${valueMaskAfter}"
-            tvCategory.text = "Categoria: ${register.categoryId}"
+            tvCategory.text = register.category.name
             imgBtnDelete.setOnClickListener {
                 onDeleteClick(register)
             }
