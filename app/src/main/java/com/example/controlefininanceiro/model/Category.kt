@@ -1,5 +1,6 @@
 package com.example.controlefininanceiro.model
 
+import android.widget.Toast
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable

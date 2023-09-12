@@ -21,6 +21,7 @@ class NewRegisterFragment : Fragment() {
     private var database = AppDatabase
     private var registerId = 0L
     private lateinit var spinner: Spinner
+    //
     private var categoryCurrent: Category? = null
 
 
@@ -125,7 +126,7 @@ class NewRegisterFragment : Fragment() {
                 id: Long
             ){
                 categoryCurrent = categories[position]
-                //Toast.makeText(requireContext(), "Item Selecionado", Toast.LENGTH_SHORT).show()
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
