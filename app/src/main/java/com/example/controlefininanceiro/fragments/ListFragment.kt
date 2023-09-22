@@ -2,14 +2,15 @@ package com.example.controlefininanceiro.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.example.controlefininanceiro.R
 import com.example.controlefininanceiro.adapter.RegisterAdapter
 import com.example.controlefininanceiro.dao.AppDatabase
@@ -38,8 +39,8 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupAdapter()
-        setupLayout()
         onDataUpdate()
+        setupLayout()
     }
 
 
@@ -58,12 +59,7 @@ class ListFragment : Fragment() {
 
     private fun setupLayout() {
         binding.fabNewRegister.setOnClickListener {
-
-            parentFragmentManager.commit {
-                setReorderingAllowed(true)
-                replace<NewRegisterFragment>(R.id.fragment_container_view)
-                addToBackStack(null)
-            }
+            findNavController().navigate(R.id.listFragment_to_newRegister)
         }
     }
 
@@ -74,8 +70,8 @@ class ListFragment : Fragment() {
         adapter = RegisterAdapter(
             onDeleteClick = { registerTobeDeleted ->
                 showDeleteConfirmation(registerTobeDeleted) { register ->
-                    adapter.deleteRegister(register)
                     registerDao.delete(register)
+                    adapter.deleteRegister(register)
                 }
             },
             onClick = { registerTobeEdited ->
@@ -90,11 +86,7 @@ class ListFragment : Fragment() {
                     )
                 )
                 setFragmentResult("REGISTER_RESULT", bundle)
-                parentFragmentManager.commit {
-                    setReorderingAllowed(true)
-                    replace<NewRegisterFragment>(R.id.fragment_container_view)
-                    addToBackStack(null)
-                }
+                findNavController().navigate(R.id.listFragment_to_newRegister)
             }
         )
 

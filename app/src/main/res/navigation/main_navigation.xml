@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/registerList">
+
+    <fragment
+        android:id="@+id/registerList"
+        android:name="com.example.controlefininanceiro.fragments.ListFragment"
+        android:label="@string/register_list"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/listFragment_to_newRegister"
+            app:destination="@id/newRegisterFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/newRegisterFragment"
+        android:name="com.example.controlefininanceiro.fragments.NewRegisterFragment"
+        android:label="@string/new_register"
+        tools:layout="@layout/fragment_new_register">
+        <action
+            android:id="@+id/newRegister_to_registerList"
+            app:destination="@id/registerList" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryList"
+        android:name="com.example.controlefininanceiro.fragments.CategoryListFragment"
+        android:label="@string/category_list"
+        tools:layout="@layout/fragment_category_list">
+        <action
+            android:id="@+id/categoryList_to_newCategory"
+            app:destination="@id/newCategoryFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/newCategoryFragment"
+        android:name="com.example.controlefininanceiro.fragments.NewCategoryFragment"
+        android:label="@string/new_category"
+        tools:layout="@layout/fragment_new_category">
+
+        <action
+            android:id="@+id/newCategory_to_categoryList"
+            app:destination="@id/categoryList" />
+    </fragment>
+
+
+</navigation>

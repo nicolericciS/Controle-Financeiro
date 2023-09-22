@@ -2,6 +2,7 @@ package com.example.controlefininanceiro.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.example.controlefininanceiro.R
 import com.example.controlefininanceiro.adapter.CategoryAdapter
 import com.example.controlefininanceiro.dao.AppDatabase
@@ -30,6 +32,7 @@ class CategoryListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        activity?.title = "Categorias"
         _binding = FragmentCategoryListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -49,11 +52,7 @@ class CategoryListFragment : Fragment() {
 
     private fun setupLayout() {
         binding.fabNewCategory.setOnClickListener {
-            parentFragmentManager.commit {
-                setReorderingAllowed(true)
-                replace<NewCategoryFragment>(R.id.fragment_container_view)
-                addToBackStack(null)
-            }
+            findNavController().navigate(R.id.categoryList_to_newCategory)
         }
     }
 
@@ -66,6 +65,7 @@ class CategoryListFragment : Fragment() {
             onClick = { categoryToBeEdited ->
                 category = categoryToBeEdited
 
+
                 val bundle = bundleOf(
                     "CATEGORY" to Category(
                         id = category.id,
@@ -73,11 +73,7 @@ class CategoryListFragment : Fragment() {
                     )
                 )
                 setFragmentResult("CATEGORY_RESULT", bundle)
-                parentFragmentManager.commit {
-                    setReorderingAllowed(true)
-                    replace<NewCategoryFragment>(R.id.fragment_container_view)
-                    addToBackStack(null)
-                }
+                findNavController().navigate(R.id.categoryList_to_newCategory)
             },
             onDeleteClick = { categoryToBeDeleted ->
                 showDeleteConfirmation(categoryToBeDeleted) { category ->

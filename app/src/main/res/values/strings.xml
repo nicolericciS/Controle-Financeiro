@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Controle Fininanceiro</string>
+    <string name="fragment_title"> </string>
+    <string name="register_list"> Meus Registros</string>
+    <string name="new_register"> Novo Registros</string>
+    <string name="category_list"> Categorias</string>
+    <string name="new_category"> Nova Categoria</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
 

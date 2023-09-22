@@ -6,13 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.controlefininanceiro.R
 import com.example.controlefininanceiro.dao.AppDatabase
 import com.example.controlefininanceiro.databinding.FragmentNewCategoryBinding
 import com.example.controlefininanceiro.model.Category
-import kotlinx.coroutines.launch
 
-class NewCategoryFragment: Fragment() {
+
+class NewCategoryFragment : Fragment() {
 
     private var _binding: FragmentNewCategoryBinding? = null
     private val binding: FragmentNewCategoryBinding get() = _binding!!
@@ -33,7 +35,9 @@ class NewCategoryFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setListener()
+
         setFragmentResultListener("CATEGORY_RESULT") { _, bundle ->
+
             val category = bundle.getSerializable("CATEGORY") as Category
             categoryId = category.id
             binding.edtName.setText(category.name)
@@ -56,7 +60,7 @@ class NewCategoryFragment: Fragment() {
     }
 
     private fun submitInfoToFragment() {
-        parentFragmentManager.popBackStack()
+        findNavController().navigate(R.id.newCategory_to_categoryList)
     }
 
 
@@ -67,8 +71,10 @@ class NewCategoryFragment: Fragment() {
         val btnSave = binding.btnSave
         btnSave.setOnClickListener {
             val newCategory = onSubmit()
-            lifecycleScope.launch {
 
+            if (newCategory == null) {
+
+            } else {
                 if (categoryId > 0) {
                     categoryDao.update(newCategory)
                 } else {

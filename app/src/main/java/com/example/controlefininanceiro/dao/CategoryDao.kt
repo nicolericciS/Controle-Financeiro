@@ -10,7 +10,7 @@ interface CategoryDao {
     fun searchAll(): List<Category>
 
     @Insert
-    suspend fun save(category: Category)
+     fun save(category: Category)
 
     @Delete
     fun delete(category: Category)

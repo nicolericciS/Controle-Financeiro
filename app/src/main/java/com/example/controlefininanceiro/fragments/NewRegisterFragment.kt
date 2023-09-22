@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.findNavController
+import com.example.controlefininanceiro.R
 import com.example.controlefininanceiro.dao.AppDatabase
 import com.example.controlefininanceiro.databinding.FragmentNewRegisterBinding
 import com.example.controlefininanceiro.model.Category
@@ -82,7 +84,7 @@ class NewRegisterFragment : Fragment() {
     }
 
     private fun submitInfoToFragment() {
-        parentFragmentManager.popBackStack()
+       findNavController().navigate(R.id.newRegister_to_registerList)
     }
 
 
